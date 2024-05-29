@@ -4,7 +4,7 @@ xhr.open('GET','https://api.freecurrencyapi.com/v1/latest?apikey=fca_live_EdklOl
 xhr.onload = function () {
     if (xhr.status >= 200 && xhr.status < 300) {
         CURR_DATA = JSON.parse(xhr.responseText).data;
-        console.log(CURR_DATA)
+        
     } else {
         console.error('Request failed with status', xhr.status);
     }
@@ -37,3 +37,9 @@ function Convert2(){
     in1 = (in2 * (1/CURR_DATA[curr2])) * CURR_DATA[curr1];
     document.getElementById('input1').value = in1.toFixed(4);
 }
+
+setTimeout(()=>{
+    document.getElementById("input1").addEventListener("input",Convert1)
+    document.getElementById("input2").addEventListener("input", Convert2)
+
+},300)
