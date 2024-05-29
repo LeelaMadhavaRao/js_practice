@@ -1,5 +1,5 @@
 function joke(){
-    console.log("Working");
+    
     var xhr = new XMLHttpRequest();
     xhr.open('GET','https://official-joke-api.appspot.com/random_joke');
     xhr.onload = function () {
@@ -13,3 +13,6 @@ function joke(){
     };
     xhr.send()
 }
+setTimeout(()=>{
+    joke();
+},300);
